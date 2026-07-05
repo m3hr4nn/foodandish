@@ -18,6 +18,7 @@ data/raw/recipes/*
 # Local/editor files
 .DS_Store
 *.log
+*.zip
 .idea/
 .vscode/
 
