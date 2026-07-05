@@ -20,5 +20,6 @@ export function pickRandomRecipe(
 
 export function getReelItems(recipes: Recipe[], selected: Recipe): Recipe[] {
   const filler = recipes.filter((recipe) => recipe.id !== selected.id);
-  return [...filler.slice(0, 6), selected];
+  const cycle = [...filler, selected];
+  return [...cycle, ...cycle, ...cycle, ...cycle, selected];
 }

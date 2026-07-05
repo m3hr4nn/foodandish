@@ -14,6 +14,7 @@ export default function App() {
     () => getReelItems(recipes, selectedRecipe),
     [selectedRecipe]
   );
+  const reelOffset = `-${(reelItems.length - 1) * 104}px`;
 
   function spin() {
     if (isSpinning) {
@@ -40,11 +41,25 @@ export default function App() {
           longer than cooking.
         </p>
 
-        <div className="slot-machine" aria-live="polite">
+        <div className="slot-machine" aria-busy={isSpinning} aria-live="polite">
+          <div className="slot-top" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+
+          <div className="slot-title">
+            <span>Tonight's table</span>
+          </div>
+
           <div className="slot-window">
             <div
               className={isSpinning ? 'reel reel-spinning' : 'reel'}
-              style={{ ['--reel-items' as string]: reelItems.length }}
+              style={{ ['--reel-offset' as string]: reelOffset }}
             >
               {reelItems.map((recipe, index) => (
                 <div className="reel-item" key={`${recipe.id}-${index}`}>
@@ -56,14 +71,18 @@ export default function App() {
 
           <div className="result-panel">
             <span className="result-label">
-              {isSpinning ? 'Finding a dish...' : 'Recommended dish'}
+              {isSpinning ? 'Rolling' : 'Recommended dish'}
             </span>
-            <strong>{isSpinning ? 'Reel is spinning' : visibleRecipe.title}</strong>
+            <strong>{isSpinning ? 'Shuffling dishes' : visibleRecipe.title}</strong>
             <p>
               {isSpinning
-                ? 'Your answer lands in 3 seconds.'
+                ? 'Watch the reel lock onto a plate.'
                 : visibleRecipe.tags.join(' / ')}
             </p>
+          </div>
+
+          <div className="slot-handle" aria-hidden="true">
+            <span />
           </div>
         </div>
 
