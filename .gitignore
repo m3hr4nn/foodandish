@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+
+# Generated and bulk recipe data
+src/data/recipes.generated.json
+data/raw/recipes/*
+!data/raw/recipes/.gitkeep
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local/editor files
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Agent-only contributor instructions
+AGENTS.md
