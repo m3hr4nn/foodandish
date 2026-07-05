@@ -349,6 +349,17 @@ button:disabled,
   color: var(--color-text-muted);
 }
 
+.cuisine-badge {
+  display: inline-flex;
+  margin-right: var(--space-3);
+  padding: 4px var(--space-3);
+  border: 1px solid rgba(252, 167, 1, 0.34);
+  border-radius: 9999px;
+  color: var(--color-gold-soft);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
 .recipe-detail h3 {
   margin: 0 0 var(--space-3);
   color: var(--color-gold-soft);

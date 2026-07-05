@@ -32,6 +32,7 @@ function recipe(id: string, title: string): Recipe {
   return {
     id,
     title,
+    cuisine: 'International',
     tags: [],
     ingredients: [],
     directions: [],

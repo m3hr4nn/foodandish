@@ -1,6 +1,6 @@
 # Foodandish
 
-Foodandish is a recipe lottery app. Press `Spin`, wait three seconds, and the slot reel recommends what to cook next.
+Foodandish is a recipe lottery app. Press `Spin` and the slot reel recommends what to cook next.
 
 ## Development
 
@@ -18,6 +18,8 @@ npm run import:recipes
 ```
 
 The script writes normalized app-ready data to `src/data/recipes.generated.json`.
+
+The curated starter dataset in `src/data/recipes.ts` uses selected JSON recipes from `dpapathanasiou/recipes`, including Iranian/Persian and international dishes. Each record keeps the original `sourceUrl` for attribution and follow-through.
 
 ## Build
 

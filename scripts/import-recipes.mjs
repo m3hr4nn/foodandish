@@ -70,6 +70,7 @@ function normalizeRecipe(rawRecipe, file) {
   return {
     id: slugify(path.basename(file, '.json') || title),
     title,
+    cuisine: inferCuisine([title, ...ingredients]),
     tags: inferTags([...asTextArray(rawRecipe.tags), title, ...ingredients]),
     ingredients,
     directions,
@@ -77,6 +78,25 @@ function normalizeRecipe(rawRecipe, file) {
     sourceUrl,
     language: asText(rawRecipe.language) || 'en-US'
   };
+}
+
+function inferCuisine(values) {
+  const text = values.join(' ').toLowerCase();
+  const iranianTerms = [
+    'iranian',
+    'persian',
+    'kabab barg',
+    'khoresht',
+    'fesenjaan',
+    'adas polow',
+    'salad shirazi',
+    'zeytoon parvardeh',
+    'tas kebab'
+  ];
+
+  return iranianTerms.some((term) => text.includes(term))
+    ? 'Iranian'
+    : 'International';
 }
 
 function inferTags(values) {

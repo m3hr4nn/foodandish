@@ -77,7 +77,7 @@ export default function App() {
             <p>
               {isSpinning
                 ? 'Watch the reel lock onto a plate.'
-                : visibleRecipe.tags.join(' / ')}
+                : `${visibleRecipe.cuisine} / ${visibleRecipe.tags.slice(0, 4).join(' / ')}`}
             </p>
           </div>
 
@@ -108,7 +108,10 @@ export default function App() {
           <div>
             <span className="result-label">Recipe</span>
             <h2>{visibleRecipe.title}</h2>
-            <p>{visibleRecipe.tags.join(' / ')}</p>
+            <p>
+              <span className="cuisine-badge">{visibleRecipe.cuisine}</span>
+              {visibleRecipe.tags.slice(0, 6).join(' / ')}
+            </p>
           </div>
 
           <div className="recipe-grid">
