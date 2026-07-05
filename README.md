@@ -2,6 +2,18 @@
 
 Foodandish is a recipe lottery app. Press `Spin` and the slot reel recommends what to cook next.
 
+Live site: https://m3hr4nn.github.io/foodandish/
+
+## Tech Stack
+
+- Vite for the static frontend build.
+- React for UI state and rendering.
+- TypeScript for typed recipe data and app logic.
+- Plain CSS for the dark slot-machine interface.
+- Vitest for unit tests.
+- ESLint for static checks.
+- GitHub Actions and GitHub Pages for deployment.
+
 ## Development
 
 ```bash
@@ -11,7 +23,9 @@ npm run dev
 
 ## Import Recipes
 
-Place JSON recipe files from `dpapathanasiou/recipes` under `data/raw/recipes/`, then run:
+Foodandish uses selected JSON recipes from the public GitHub dataset [`dpapathanasiou/recipes`](https://github.com/dpapathanasiou/recipes), including Iranian/Persian and international dishes. Each app record keeps the original `sourceUrl` for attribution and follow-through.
+
+Place JSON recipe files from that repository under `data/raw/recipes/`, then run:
 
 ```bash
 npm run import:recipes
@@ -19,12 +33,10 @@ npm run import:recipes
 
 The script writes normalized app-ready data to `src/data/recipes.generated.json`.
 
-The curated starter dataset in `src/data/recipes.ts` uses selected JSON recipes from `dpapathanasiou/recipes`, including Iranian/Persian and international dishes. Each record keeps the original `sourceUrl` for attribution and follow-through.
-
 ## Build
 
 ```bash
 npm run build
 ```
 
-The static output is generated in `dist/` and is ready for GitHub Pages. The app uses `public/CNAME` for `foodandish.ir`; remove or edit that file if deploying without the custom domain.
+The static output is generated in `dist/` and is ready for GitHub Pages.
