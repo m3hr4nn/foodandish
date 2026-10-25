@@ -35,8 +35,8 @@
 
 /* Recommendation controls sit above the playful reel so the task stays clear. */
 .planner-card {
-  margin: 0 auto var(--space-6);
-  width: min(720px, 100%);
+  margin: 0 0 var(--space-6);
+  width: 100%;
   padding: var(--space-6);
   border: 1px solid rgba(252, 167, 1, 0.28);
   border-radius: var(--radius-lg);
@@ -192,8 +192,47 @@ a {
 }
 
 .hero {
-  width: min(960px, 100%);
+  width: min(1240px, 100%);
   text-align: center;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  align-items: start;
+  gap: var(--space-8);
+  text-align: left;
+}
+
+.lottery-column {
+  min-width: 0;
+}
+
+.recipe-column {
+  position: sticky;
+  top: var(--space-4);
+  min-width: 0;
+}
+
+.recipe-placeholder {
+  min-height: 420px;
+  padding: var(--space-8);
+  border: 1px dashed rgba(252, 167, 1, 0.42);
+  border-radius: var(--radius-lg);
+  background: rgba(21, 21, 21, 0.72);
+  color: var(--color-text-muted);
+}
+
+.recipe-placeholder h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.recipe-placeholder p {
+  max-width: 28rem;
+  line-height: 1.6;
 }
 
 .compact-hero {
@@ -235,8 +274,8 @@ h1 {
 
 .slot-machine {
   position: relative;
-  width: min(720px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: var(--space-6);
   border: 1px solid var(--color-gold);
   border-radius: var(--radius-xl);
@@ -423,7 +462,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-4);
-  margin-top: var(--space-12);
+  margin-top: var(--space-6);
 }
 
 button,
@@ -468,8 +507,8 @@ button:disabled,
 }
 
 .recipe-detail {
-  margin: var(--space-8) auto 0;
-  width: min(780px, 100%);
+  margin: 0;
+  width: 100%;
   padding: var(--space-8);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-lg);
@@ -484,6 +523,20 @@ button:disabled,
   margin: var(--space-8) auto 0;
   width: min(720px, 100%);
   text-align: center;
+}
+
+@media (max-width: 920px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-column {
+    position: static;
+  }
+
+  .recipe-placeholder {
+    min-height: 0;
+  }
 }
 
 .recipe-empty {

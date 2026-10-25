@@ -79,6 +79,8 @@ export default function App() {
           <p className="intro">Add a few ingredients and get a practical recipe recommendation.</p>
         </header>
 
+        <div className="experience-grid">
+          <div className="lottery-column">
         <section className="planner-card" aria-labelledby="planner-title">
           <div className="section-heading">
             <div><span className="result-label">Your kitchen</span><h2 id="planner-title">What should we use?</h2></div>
@@ -117,7 +119,11 @@ export default function App() {
           <button type="button" onClick={spin} disabled={isSpinning || recommendations.length === 0}>{isSpinning ? 'Finding...' : 'Recommend a recipe'}</button>
           {activeRecipe ? <button type="button" className="secondary-button" onClick={() => toggleFavorite(activeRecipe)}>{favorites.includes(activeRecipe.id) ? 'Saved' : 'Save recipe'}</button> : null}
         </div>
-        {activeRecipe && visibleRecommendation ? <RecipeDetail recommendation={visibleRecommendation} isFavorite={favorites.includes(activeRecipe.id)} onFavorite={() => toggleFavorite(activeRecipe)} /> : <p className="empty-state">Your recommendation will appear here. The catalog is refreshed weekly.</p>}
+          </div>
+          <aside className="recipe-column" aria-label="Recipe recommendation">
+            {activeRecipe && visibleRecommendation ? <RecipeDetail recommendation={visibleRecommendation} isFavorite={favorites.includes(activeRecipe.id)} onFavorite={() => toggleFavorite(activeRecipe)} /> : <div className="recipe-placeholder"><span className="result-label">Your recipe</span><h2>Spin to reveal dinner.</h2><p>The full recipe, ingredient match, and cooking directions will land here.</p></div>}
+          </aside>
+        </div>
       </section>
     </main>
   );
