@@ -1,6 +1,7 @@
 import type { Recipe } from '../types';
+import generatedRecipes from './recipes.generated.json';
 
-export const recipes: Recipe[] = [
+const starterRecipes: Recipe[] = [
   {
     "id": "adas-polow-persian-rice-and-lentils",
     "title": "Adas Polow (Persian Rice and Lentils)",
@@ -647,3 +648,9 @@ export const recipes: Recipe[] = [
     "language": "en-US"
   }
 ];
+
+// The starter data keeps a fresh clone usable before the weekly sync runs.
+export const recipes: Recipe[] =
+  generatedRecipes.length > 0
+    ? (generatedRecipes as Recipe[])
+    : starterRecipes;

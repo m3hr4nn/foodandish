@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest run",
-    "import:recipes": "node scripts/import-recipes.mjs"
+    "sync:recipes": "node scripts/sync-recipes.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

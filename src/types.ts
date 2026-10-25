@@ -8,4 +8,6 @@ export type Recipe = {
   source: string;
   sourceUrl: string;
   language: string;
+  imageUrl?: string;
+  timeMinutes?: number;
 };
